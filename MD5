@@ -1,13 +1,13 @@
-4fbe5e01e79824674fe1264f6da4afb4 *DESCRIPTION
+8405d32b2d10e201461bd9b1005d42ee *DESCRIPTION
 d12c0de366d2e88d7ec6a2fa0a0a2247 *NAMESPACE
-a5ecc92aed0125574c9ce9b3c26360f0 *NEWS
+5f5b2e2387ffdfc003d4f33737c81a02 *NEWS
 9a7900ce0596422560eb3d83853a88ff *R/api.R
 fd0a4ec05b3cde8f95b1b5d39eb9801a *R/backup.R
 f5f72452f4114a4122006ecd9861ebb1 *R/check.R
-b6717b7aafcbf3363d81a33efcb1317e *R/debug.R
+0ad1b3eeb9e200da6f531e0b3dc8e011 *R/debug.R
 be6a646b35ac5bfc755a19342b6d7c46 *R/files_apply.R
 8f7e1233e7d0ab4a016c99b191e82570 *R/filter_files.R
-aae689265eef5cc6cd79de07b2505d81 *R/find_files.R
+a2d4e1c3f4a8b54c6f83a5f0d86c53a9 *R/find_files.R
 63e8704da21aa46e54dd6bfc3afc574b *R/install.R
 70bbabcf85e1307877f58cabf116d422 *R/is_ess.R
 c83f02611dba4db64f5ecd3416a9283a *R/is_rstudio.R
@@ -17,7 +17,7 @@ c01050494bac195ee9442dee9193c86e *R/rprofile_d.R
 ddcd06db31dd898f6772786b984783e4 *R/startup.R
 e9dcc44a1a8743f4a4ed4a14cd45696f *R/sysinfo.R
 119b1389803a9dc258c1d3189b080850 *R/unload.R
-a3411880a77911ea62977a0f81e43bb4 *README.md
+00866e24476c9b52a5b84319da24f6a3 *README.md
 0d9c8bf8d64549f60214459caa849bd7 *inst/Rprofile.d,checks/an_error.R
 32615033303cc57fe41a1f08934d5fa7 *inst/Rprofile.d,checks/change_of_encoding.R
 790f0d7727eba0b65561dba9139e1095 *inst/Rprofile.d,checks/missing_newline.R
