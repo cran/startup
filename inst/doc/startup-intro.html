@@ -141,8 +141,8 @@ There are no restrictions on what the file names should be (except for the ones 
 <h3>Setting environment variables during startup</h3>
 <p>Renviron startup files is a convenient and cross-platform way of setting environment variables during the R startup process.  However, for some of the environment variables that R consults must be set early on in the R startup process (immediately after Step 1), because R only consults them once.  An example(*) of environment variables that need to be set <em>no later than</em> <code>.Renviron</code> (Step 1) are:</p>
 <ul>
-<li><code>LC_ALL</code> - locale settings used by R, cf. <code>?locales</code></li>
-<li><code>R_LIBS_USER</code> - user's library path, cf. <code>?R_LIBS_USER</code></li>
+<li><code>LC_ALL</code> - locale settings used by R, e.g.  cf. <code>?locales</code></li>
+<li><code>R_LIBS_USER</code> - user's library path, e.g. <code>R_LIBS_USER=~/R/%p-library/%v</code> is the folder specification used by default on all platforms and and R version.  The folder must exist, otherwise it is ignored by R.  The The <code>%p</code> and <code>%v</code> parts are R-specific conversion specifiers, cf. <code>?R_LIBS_USER</code></li>
 <li><code>R_DEFAULT_PACKAGES</code> - default set of packages loaded when R starts, cf. <code>?Rscript</code></li>
 </ul>
 <p>Any changes to these done in an <code>.Renviron.d/*</code> file (Step 3a), or via <code>Sys.setenv()</code> in <code>.Rprofile</code> (Step 2) or <code>.Rprofile.d/*</code> files (Step 3c), <em>will be ignored by R itself</em> - despite being reflected by <code>Sys.getenv()</code>.</p>
@@ -152,14 +152,13 @@ There are no restrictions on what the file names should be (except for the ones 
 <li><code>TMPDIR</code>, <code>TMP</code>, <code>TEMP</code> - the parent of R's temporary directory,
 cf. <code>?tempdir</code></li>
 <li><code>MKL_NUM_THREADS</code> and <code>OMP_NUM_THREADS</code> - the default number of threads used by OpenMP etc, cf. <em>R Installation and Administration</em></li>
-<li><code>R_MAX_NUM_DLLS</code>, cf. <code>?dyn.load</code></li>
 </ul>
 <p>In other words, these variables have to be set using methods specific to the operating system or the calling shell, e.g. in Unix shells</p>
 <pre><code class="language-sh">$ export TMPDIR=/path/to/tmp
 $ R
 </code></pre>
 <p>or per call as</p>
-<pre><code class="language-sh">R_MAX_NUM_DLLS=500 R
+<pre><code class="language-sh">TMPDIR=/path/to/tmp R
 </code></pre>
 <p>(*) For further details on which environment variables R consults and what they are used for by R, see the R documentation and help, e.g. <code>?&quot;environment variables&quot;</code> and <code>?Startup</code>.</p>
 <h2>Examples</h2>
