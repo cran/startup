@@ -109,7 +109,7 @@ There are no restrictions on what the file names should be (except for the ones 
 <p>The following <code>startup::sysinfo()</code> keys are available for conditional inclusion of files by their path names:</p>
 <ul>
 <li>
-<p>Values:</p>
+<p>System values:</p>
 <ul>
 <li><code>gui</code>         - (character) the graphical user interface (= <code>.Platform$GUI</code>)</li>
 <li><code>nodename</code>    - (character) the host name (= <code>Sys.info()[[&quot;nodename&quot;]]</code>)</li>
@@ -120,12 +120,15 @@ There are no restrictions on what the file names should be (except for the ones 
 </ul>
 </li>
 <li>
-<p>Flags:</p>
+<p>System flags:</p>
 <ul>
 <li><code>interactive</code> - (logical) whether running R interactively or not (= <code>interactive()</code>)</li>
 <li><code>ess</code>         - (logical) whether running R in <a href="https://ess.r-project.org/">Emacs Speaks Statistics (ESS)</a> or not</li>
-<li><code>rice</code>        - (logical) whether running R in <a href="https://github.com/randy3k/rice">rice</a> or not</li>
-<li><code>rstudio</code>     - (logical) whether running R in <a href="https://www.rstudio.com/products/RStudio/">RStudio</a> or not</li>
+<li><code>pqr</code>         - (logical) whether running <a href="http://www.pqr-project.org/">pqR</a> (&quot;A Pretty Quick Version of R&quot;) or not</li>
+<li><code>rtichoke</code>    - (logical) whether running R in <a href="https://github.com/randy3k/rtichoke">rtichoke</a> (formerly known as 'rice') or not</li>
+<li><code>microsoftr</code>  - (logical) whether running R in <a href="https://mran.microsoft.com/open">Microsoft R Open</a> or not</li>
+<li><code>rstudio</code>     - (logical) whether running R in <a href="https://www.rstudio.com/products/RStudio/">RStudio</a> Console or not</li>
+<li><code>rstudioterm</code> - (logical) whether running R in <a href="https://www.rstudio.com/products/RStudio/">RStudio</a> Terminal or not</li>
 <li><code>wine</code>        - (logical) whether running R on Windows via <a href="https://www.winehq.org/">Linux Wine</a> or not</li>
 </ul>
 </li>
@@ -135,9 +138,28 @@ There are no restrictions on what the file names should be (except for the ones 
 <li><code>package</code>     - (character) whether a package is installed or not</li>
 </ul>
 <p>In addition to checking the availability, having <code>package=&lt;name&gt;</code> in the filename makes it clear that the startup file concerns settings specific to that package.</p>
-<p>Any further <code>&lt;key&gt;=&lt;value&gt;</code> specifications with keys matching none of the above known keys are interpreted as system environment variables and startup will test such conditions against their values.  <em>Note, if <code>&lt;key&gt;</code> does not correspond to a known environment variable, then the condition is ignored.</em>  For instance, a startup file or directory containing <code>LANGUAGE=fr</code> will be processed only if the environment variable <code>LANGUAGE</code> equals <code>fr</code> (or is not set).</p>
+<p>Any further <code>&lt;key&gt;=&lt;value&gt;</code> specifications with keys matching none of the above known keys are interpreted as system environment variables and startup will test such conditions against their values.  <em>Note, if <code>&lt;key&gt;</code> does not correspond to a known environment variable, then the file is skipped</em>.</p>
 <p>To condition on more than one key, separate <code>&lt;key&gt;=&lt;value&gt;</code> pairs by commas, e.g. <code>~/.Rprofile.d/work,interactive=TRUE,os=windows.R</code>.  This also works for directory names.  For instance, <code>~/.Rprofile.d/os=windows/work,interactive=TRUE.R</code> will be processed if running on Windows and in interactive mode.  Multiple packages may be specified.  For instance, <code>~/.Rprofile.d/package=devtools,package=future.R</code> will be used only if both the devtools and the future packages are installed.</p>
 <p>It is also possible to negate a conditional filename test by using the <code>&lt;key&gt;!=&lt;value&gt;</code> specification.  For instance, <code>~/.Rprofile.d/package=doMC,os!=windows.R</code> will be processed if package <code>doMC</code> is installed and the operating system is not Windows.</p>
+<h3>Secrets (conditionally on an environment variable)</h3>
+<p>As of startup 0.10.0, Renviron and Rprofile startup files with a non-declared <code>&lt;key&gt;</code> in their file names are skipped.  A non-declared key is any key that is neither one of the above predefined keys nor a declared environment variable.</p>
+<p>This is useful, because it allows us to keep &quot;secrets&quot; in private files and only load them conditionally on the value of an environment variable.  For instance, we put all our secret Renviron files under <code>~/.Renviron.d/private/SECRET=banana/</code> such that they are only loaded if environment variable <code>SECRET</code> is set to exactly <code>banana</code>.  Moreover, by making sure the directory <code>~/.Renviron.d/private/</code> is only accessible by you, then it will be harder for someone else two know what your secret &quot;password&quot; (<code>banana</code>) is.  On a Unix system, you can set this up as:</p>
+<pre><code class="language-sh">$ mkdir -p ~/.Renviron.d/private/SECRET=banana/
+$ chmod go-rw ~/.Renviron.d/private
+</code></pre>
+<p>Then go ahead an put your secret Renviron files in there, e.g.</p>
+<pre><code class="language-sh">.Renviron.d/private/SECRET=banana/
+  +-- amazon  ## AWS_* credential &amp; settings
+  +-- github  ## GITHUB_TOKEN + GITHUB_PAT
+</code></pre>
+<p>Now, only if <code>SECRET</code> is set to exactly <code>banana</code> when you launch R, the above secret files will be processed and the corresponding environment variables will be available from withing R.  For instance, they will be loaded if you do:</p>
+<pre><code class="language-r">$ SECRET=banana R
+</code></pre>
+<p>but not if you do:</p>
+<pre><code class="language-r">$ SECRET=badguess R
+</code></pre>
+<p>or if <code>SECRET</code> is unset.</p>
+<p><em>Comment:</em> You can used whichever variable name you like, it does not have to be <code>SECRET</code>.  And, the &quot;password&quot; <code>banana</code> is obviously just an example.</p>
 <h2>Known limitations</h2>
 <h3>Setting environment variables during startup</h3>
 <p>Renviron startup files is a convenient and cross-platform way of setting environment variables during the R startup process.  However, for some of the environment variables that R consults must be set early on in the R startup process (immediately after Step 1), because R only consults them once.  An example(*) of environment variables that need to be set <em>no later than</em> <code>.Renviron</code> (Step 1) are:</p>
@@ -167,9 +189,8 @@ $ R
 <p>Below is a list of &quot;real-world&quot; example files:</p>
 <pre><code>.Renviron.d/
   +-- lang
-  +-- libs
   +-- r_cmd_check
-  +-- secrets
+  +-- secrets=banana
  
 .Rprofile.d/
   +-- interactive=TRUE/
