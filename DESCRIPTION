@@ -1,8 +1,8 @@
 Package: startup
-Version: 0.13.0
+Version: 0.14.0
 Title: Friendly R Startup Configuration
 Depends: R (>= 2.14.0)
-Suggests: commonmark, tools
+Suggests: commonmark, tools, tcltk
 VignetteBuilder: startup
 Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                           email = "henrikb@braju.com"))
@@ -11,10 +11,10 @@ License: LGPL (>= 2.1)
 LazyLoad: TRUE
 URL: https://github.com/HenrikBengtsson/startup
 BugReports: https://github.com/HenrikBengtsson/startup/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 NeedsCompilation: no
-Packaged: 2019-10-27 02:20:39 UTC; hb
+Packaged: 2019-12-09 20:11:07 UTC; hb
 Author: Henrik Bengtsson [aut, cre, cph]
 Maintainer: Henrik Bengtsson <henrikb@braju.com>
 Repository: CRAN
-Date/Publication: 2019-10-27 05:50:02 UTC
+Date/Publication: 2019-12-09 21:20:02 UTC
