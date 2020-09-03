@@ -1,5 +1,5 @@
 Package: startup
-Version: 0.14.1
+Version: 0.15.0
 Title: Friendly R Startup Configuration
 Depends: R (>= 2.14.0)
 Suggests: commonmark, tools, tcltk
@@ -11,10 +11,10 @@ License: LGPL (>= 2.1)
 LazyLoad: TRUE
 URL: https://github.com/HenrikBengtsson/startup
 BugReports: https://github.com/HenrikBengtsson/startup/issues
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-04-01 06:52:49 UTC; hb
+Packaged: 2020-09-03 17:37:37 UTC; hb
 Author: Henrik Bengtsson [aut, cre, cph]
 Maintainer: Henrik Bengtsson <henrikb@braju.com>
 Repository: CRAN
-Date/Publication: 2020-04-01 07:20:07 UTC
+Date/Publication: 2020-09-03 18:00:03 UTC

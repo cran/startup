@@ -188,6 +188,7 @@ $ chmod go-rw ~/.Renviron.d/private
 <h3>Setting environment variables during startup</h3>
 <p>Renviron startup files is a convenient and cross-platform way of setting environment variables during the R startup process.  However, for some of the environment variables that R consults must be set early on in the R startup process (immediately after Step 1), because R only consults them once.  Examples(*) of environment variables that need to be set <em>no later than</em> <code>.Renviron</code> (Step 1) are:</p>
 <ul>
+<li><code>TMPDIR</code>, <code>TMP</code>, <code>TEMP</code> - the parent of R's temporary directory, cf. <code>?tempdir</code></li>
 <li><code>LC_ALL</code> - locale settings used by R, e.g.  cf. <code>?locales</code></li>
 <li><code>R_DEFAULT_PACKAGES</code> - default set of packages loaded when R starts, cf. <code>?Rscript</code></li>
 <li><code>R_LIBS_USER</code> - user's library path, e.g. <code>R_LIBS_USER=~/R/%p-library/%v</code> is the folder specification used by default on all platforms and and R version.  The folder must exist, otherwise it is ignored by R.  The <code>%p</code> (platform) and <code>%v</code> (version) parts are R-specific conversion specifiers, cf. <code>?R_LIBS_USER</code></li>
@@ -197,16 +198,14 @@ $ chmod go-rw ~/.Renviron.d/private
 <p>Furthermore, some environment variables can not even be set in <code>.Renviron</code> (Step 1) but must be set <em>prior</em> to launching R.  This is because those variables are consulted by R very early on (prior to Step 1).  Examples(*) of environment variables that need to be set <em>prior to</em> <code>.Renviron</code> (Step 1) are:</p>
 <ul>
 <li><code>HOME</code> - the user's home directory</li>
-<li><code>TMPDIR</code>, <code>TMP</code>, <code>TEMP</code> - the parent of R's temporary directory,
-cf. <code>?tempdir</code></li>
 <li><code>MKL_NUM_THREADS</code> and <code>OMP_NUM_THREADS</code> - the default number of threads used by OpenMP etc, cf. <em>R Installation and Administration</em></li>
 </ul>
-<p>In other words, these variables have to be set using methods specific to the operating system or the calling shell, e.g. in Unix shells</p>
-<pre><code class="language-sh">$ export TMPDIR=/path/to/tmp
+<p>These variables have to be set using methods specific to the operating system or the calling shell, e.g. in a Unix shell</p>
+<pre><code class="language-sh">$ export OMP_NUM_THREADS=1
 $ R
 </code></pre>
 <p>or per call as</p>
-<pre><code class="language-sh">TMPDIR=/path/to/tmp R
+<pre><code class="language-sh">OMP_NUM_THREADS=1 R
 </code></pre>
 <p>(*) For further details on which environment variables R consults and what they are used for by R, see the R documentation and help, e.g. <code>?&quot;environment variables&quot;</code> and <code>?Startup</code>.</p>
 <h2>Examples</h2>
