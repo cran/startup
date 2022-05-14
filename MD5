@@ -1,6 +1,6 @@
-43d74448a666ce65d907e065ff215527 *DESCRIPTION
+6c83e9a5c443e386482f5bb0492ab2b8 *DESCRIPTION
 6d31efab0a40c10bd6adee35423d04ca *NAMESPACE
-63d67b64abe09b9297b98d49ae3fde89 *NEWS
+cd2c7696eabfaec32982ade13cd47dfb *NEWS.md
 497d58fcd0c95eebfce03f32f3ee9b30 *R/agenda.R
 6bb876f8fe0b3f0f8746f9e20cdf8fac *R/api.R
 bce56b7a9544685817c17a4bb9b1c289 *R/backup.R
@@ -8,7 +8,7 @@ ce65605cd8255ce459aeca46cbc4fff9 *R/check.R
 627898da31eabdb87d06d2507f7a2c2a *R/conditions.R
 4b3eb45222e9e8bb3ff1ad6707c16099 *R/current_script.R
 30ee7bee4c1fe7660cad6b0c24a48d6b *R/debug.R
-6223adad87942abf5740ff8118b62e9d *R/files_apply.R
+af78b6372b9ad8e754fe6ca805254a66 *R/files_apply.R
 a51df3cca1185334841a3b08eee741cc *R/filter_files.R
 9cd65acd1e67fdf48163a6ee9e72fe6b *R/find_files.R
 23ceef9d02b92906fd842aade808a94b *R/install.R
@@ -34,8 +34,8 @@ be459364f40ed4fb664c6707c8061209 *R/userdirs.R
 6ffa33a3769d169ac848e36149a28cb7 *R/utils.R
 f076f30584783a7e8cd6c62789c01eab *R/vignette_engine.R
 ef006fd5f9ab828bba4be92d0231c468 *R/zzz.R
-83f175b019c3f07f840f2e6b5d476f6f *README.md
-acf8c6cc6df6f2d438e4badb77ccfbf6 *build/vignette.rds
+23245da7571f0d6201badbf47ea9d1dd *README.md
+12cdb0d299cde493ecc32f86930245e5 *build/vignette.rds
 dff1d3ffe8665c34ec2c6caad38e4aba *inst/Renviron.d/lang
 4a964d01061fca572c719ccddb6ec32a *inst/Renviron.d/r_cmd_check
 c192b4d04659fe348820c007879d8ba3 *inst/Renviron.d/secrets=banana
@@ -49,8 +49,8 @@ f0d244068a0ecc610b4189c7c6b7a6cd *inst/Rprofile.d/interactive=TRUE/package=fortu
 89c00a12e1fe72f35b313d32e6558f6c *inst/Rprofile.d/os=windows.R
 a65b374f00f8914caa0c3f5b6b526165 *inst/Rprofile.d/repos.R
 66e285813b8802d6eb4b93154365b8e3 *inst/WORDLIST
-e8261ea8920713829553da84bd6a9153 *inst/doc/startup-intro.html
-f232b48158556b1206702b824911a4c2 *inst/doc/startup-intro.md
+eece39daeb4d2d71a8e7f9ae9e4058b2 *inst/doc/startup-intro.html
+7d4091e85d2edbf394861eb853a23ddb *inst/doc/startup-intro.md
 44fd495c19e44ee7399931a4a811a4c0 *inst/dummy.txt
 9d1c394ba82559f794311d1b931e5cc8 *man/check.Rd
 b6da31f352e4def0777b38201ddfa6d7 *man/current_script.Rd
@@ -86,4 +86,4 @@ b2a5332b47ed90fa8c6ca3f69055d9ef *tests/startup_session_options.R
 96b8a4607341364e06a6e235857983c6 *tests/sysinfo.R
 5bdd09da92c7ebd3b72374ad72ba82f4 *tests/unload.R
 6359b734e1ac2816edd85302efc5fc04 *vignettes/incl/clean.css
-f232b48158556b1206702b824911a4c2 *vignettes/startup-intro.md
+7d4091e85d2edbf394861eb853a23ddb *vignettes/startup-intro.md
