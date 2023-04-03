@@ -140,12 +140,16 @@ There are no restrictions on what the file names should be (except for the ones 
 <p>System flags:</p>
 <ul>
 <li><code>interactive</code> - (logical) whether running R interactively or not (= <code>interactive()</code>)</li>
+<li><code>quiet</code>       - (logical) Indicates whether one of the R command-line arguments <code>-q</code>, <code>--quiet</code>, and <code>--silent</code> was specified</li>
+<li><code>save</code>        - (logical) TRUE if R was launched with command-line argument <code>--save</code>, FALSE if launched with <code>--no-save</code>, otherwise NA</li>
 <li><code>ess</code>         - (logical) whether running R in <a href="https://ess.r-project.org/">Emacs Speaks Statistics (ESS)</a> or not</li>
 <li><code>pqr</code>         - (logical) whether running <a href="http://www.pqr-project.org/">pqR</a> (&quot;A Pretty Quick Version of R&quot;) or not</li>
 <li><code>radian</code>      - (logical) whether running R in <a href="https://github.com/randy3k/radian">radian</a> (formerly known as 'rtichoke' and 'rice') or not</li>
 <li><code>microsoftr</code>  - (logical) whether running R in <a href="https://mran.microsoft.com/open">Microsoft R Open</a> or not</li>
-<li><code>rstudio</code>     - (logical) whether running R in <a href="https://www.rstudio.com/products/RStudio/">RStudio</a> Console or not</li>
-<li><code>rstudioterm</code> - (logical) whether running R in <a href="https://www.rstudio.com/products/RStudio/">RStudio</a> Terminal or not</li>
+<li><code>rapp</code>        - (logical) whether running R in [R.app] or not (a macOS GUI)</li>
+<li><code>rgui</code>        - (logical) whether running R in [Rgui] or not (an MS Windows GUI)</li>
+<li><code>rstudio</code>     - (logical) whether running R in <a href="https://posit.co/products/open-source/rstudio/">RStudio</a> Console or not</li>
+<li><code>rstudioterm</code> - (logical) whether running R in <a href="https://posit.co/products/open-source/rstudio/">RStudio</a> Terminal or not</li>
 <li><code>wine</code>        - (logical) whether running R on Windows via <a href="https://www.winehq.org/">Linux Wine</a> or not</li>
 </ul>
 </li>
